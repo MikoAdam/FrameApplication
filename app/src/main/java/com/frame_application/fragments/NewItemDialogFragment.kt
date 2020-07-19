@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.ViewModelProvider
 import com.frame_application.R
 import com.frame_application.model.Item
 import com.frame_application.view_model.ViewModel
@@ -19,7 +20,7 @@ class NewItemDialogFragment : DialogFragment() {
     }
 
     private lateinit var contentView: View
-    private val viewModel = ViewModel()
+    private val viewModel = ViewModelProvider(this).get(ViewModel::class.java)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

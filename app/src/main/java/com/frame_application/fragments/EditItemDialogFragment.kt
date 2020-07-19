@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.frame_application.R
 import com.frame_application.model.Item
@@ -15,13 +16,14 @@ import kotlinx.android.synthetic.main.dialog_item.view.*
 import kotlinx.coroutines.launch
 
 class EditItemDialogFragment : DialogFragment() {
+
     companion object {
         const val TAG = "EditItemDialogFragment"
     }
 
     private lateinit var contentView: View
     private lateinit var item: Item
-    private val viewModel = ViewModel()
+    private val viewModel = ViewModelProvider(this).get(ViewModel::class.java)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
